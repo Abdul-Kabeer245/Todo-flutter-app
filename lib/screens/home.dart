@@ -37,7 +37,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: tdBG,
       appBar: _appBar(),
-      body: Stack(
+      body: Column  (
         children: [
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
@@ -46,9 +46,10 @@ class _HomeState extends State<Home> {
                 searchBox(),
                 Expanded(
                     child: ListView(
+                      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                   children: [
                     Container(
-                      margin: const EdgeInsets.only(top: 50, bottom: 20),
+                      margin: const EdgeInsets.only(top: 30, bottom: 20),
                       child: const Text(
                         'All Tasks',
                         style: TextStyle(
@@ -57,14 +58,16 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                     ),
+
                     for (ToDo todos in _foundTodo)
-                      TodoItem(
+                        TodoItem(
                         todo: todos,
                         onToDoChanged: _handleTodoChange,
                         onToDoDelete: _handleTodoDelete,
                       ),
                   ],
-                ))
+                )
+                )
               ],
             ),
           ),
@@ -110,7 +113,11 @@ class _HomeState extends State<Home> {
                   margin: const EdgeInsets.only(bottom: 20, right: 20),
                   height: 60,
                   width: 60,
-                  color: tdBlue,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: tdBlue,
+                  ),
+
                   alignment: Alignment.center,
                   child: ElevatedButton(
                     onPressed: () {
@@ -223,7 +230,7 @@ class _HomeState extends State<Home> {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: const Image(
-                image: AssetImage("assets/images/abdul.jpg"),
+                image: AssetImage("assets/images/avatar.jpg"),
               ),
             ),
           ),

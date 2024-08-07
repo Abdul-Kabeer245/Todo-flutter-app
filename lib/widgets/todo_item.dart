@@ -45,8 +45,9 @@ class TodoItem extends StatelessWidget {
             borderRadius: BorderRadius.circular(5),
           ),
           child: IconButton(
+            padding: const EdgeInsets.only(right: 0),
             color: Colors.white,
-            iconSize: 18,
+            iconSize: 30,
             icon: const Icon(Icons.delete),
             onPressed: () {
               onToDoDelete(todo.id);
